@@ -36,17 +36,24 @@ app.get("/pokemon/:id", (req, res) => {
 
 // Edit Route - GET
 app.get("/pokemon/:id/edit", (req, res) => {
-  res.send("I am EDIT!");
+  res.render("edit.ejs", {
+    myPokemon: pokemons[req.params.id],
+    index: req.params.id,
+  });
 });
 
 // Create Route - POST
 app.post("/pokemon", (req, res) => {
-  res.send("Let's CREATE!");
+  console.log(req.body);
+  pokemons.unshift(req.body);
+  res.redirect("/pokemon");
 });
 
 // Update Route - PUT
 app.put("/pokemon/:id", (req, res) => {
-  res.send("Let's UPDATE!");
+  console.log(req.body);
+  pokemons[req.params.id] = req.body;
+  res.redirect("/pokemon");
 });
 
 // Delete Route - DELETE

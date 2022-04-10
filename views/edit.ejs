@@ -6,29 +6,25 @@
     <%- include("partials/header.ejs") %> 
   </header>
   <main>
-    <form class="row g-3" action="/pokemon" method="post">
+    <form class="row g-3" action="/pokemon/<%=index%>?_method=PUT" method="post">
       <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Name</label>
-        <input type="name" class="form-control" name="name">
+        <label for="inputEmail4" class="form-label">Name<label>
+        <input type="name" class="form-control" name="name" value="<%=myPokemon.name %> ">
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Image</label>
-        <input type="name" class="form-control" name="img">
-      </div>
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">HP</label>
-        <input type="name" class="form-control" name=stats.hp>
+        <input type="name" class="form-control" name="img" value="<%=myPokemon.img%> ">
       </div>
       <div class="col-md-4">
         <label for="inputState" class="form-label">Type</label>
         <select id="inputState" class="form-select">
           <option selected>Choose Type</option>
-          <option name="fire">Fire</option>
+          <option name="type">Fire</option>
           <option name="type">Water</option>
         </select>
       </div>
       <div class="col-12">
-          <button type="submit" class="btn btn-primary">Add Pokemon</button>
+          <button type="submit" class="btn btn-primary">Update <%=myPokemon.name %> </button>
       </div>
     </form>
   </main>
