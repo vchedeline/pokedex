@@ -6,7 +6,6 @@
 body {
   box-sizing: border-box;
   background-color: cornflowerblue;
-  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -28,4 +27,17 @@ main {
   width: 80vw;
   height: 85vh;
   background-color: azure;
+}
+
+.card-image {
+  width: 20vw;
+  height: 20vh;
+}
+
+.index-image {
+  width: 200px;
+  height: 200px;
+  box-shadow: 2px 2px black;
+  border: 2px red;
+margin: 20px;
 }

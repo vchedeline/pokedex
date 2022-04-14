@@ -52,6 +52,8 @@ app.post("/pokemon", (req, res) => {
 // Update Route - PUT
 app.put("/pokemon/:id", (req, res) => {
   console.log(req.body);
+  req.body.stats = req.body.hp;
+  console.log(req.body);
   pokemons[req.params.id] = req.body;
   res.redirect("/pokemon");
 });

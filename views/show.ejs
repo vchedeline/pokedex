@@ -5,9 +5,18 @@
   <header>
     <%- include("partials/header.ejs") %> 
   </header>
-  <main>
-    <div class="container">
+  <main class="d-flex flex-column">
+    <div class="container d-flex">
       <img src="<%=myPokemon.img%>" class="img-thumbnail" alt="<%=myPokemon.name%>">
+      <h1><%=myPokemon.name%></h1>
+      <ul>
+        <li>Type: <%= myPokemon.type%> </li>
+        <li>HP: <%= myPokemon.stats.hp %></li>
+        <li>ATTACK: <%= myPokemon.stats.attack %></li>
+        <li>DEFENSE: <%= myPokemon.stats.defense %></li>
+      </ul>
+    </div>
+    <div class="container">
       <div class="btn-group" role="group" aria-label="Basic outlined example">
         <a href="/pokemon/<%=index%>/edit">
           <button type="button" class="btn btn-outline-primary">EDIT</button>
@@ -16,15 +25,19 @@
           <button type="submit" class="btn btn-outline-primary">DELETE</button>        
         </form>
       </div>
+      
     </div>
-    <div class="container">
-      <h1><%=myPokemon.name%></h1>
-      <ul>
-        <li>Type: <%= myPokemon.type.join(", ") %> </li>
-        <li>HP: <%= myPokemon.stats.hp %></li>
-        <li>ATTACK: <%= myPokemon.stats.attack %></li>
-        <li>DEFENSE: <%= myPokemon.stats.defense %></li>
-      </ul>
+    <p>
+      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Show More Info
+      </button>
+    </p>
+    <div style="min-height: 120px;">
+      <div class="collapse collapse-horizontal" id="collapseWidthExample">
+        <div class="card card-body" style="width: 300px;">
+          This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+        </div>
+      </div>
     </div>
   </main>
 </body>
