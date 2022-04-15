@@ -6,26 +6,30 @@
     <%- include("partials/header.ejs") %> 
   </header>
   <main>
-    <form class="row g-3" action="/pokemon/<%=index%>?_method=PUT" method="post">
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Name<label>
-        <input type="name" class="form-control" name="name" value="<%=myPokemon.name %> ">
+    <form action="/pokemon/<%=index%>?_method=PUT" method="post" style="background-color: transparent;">
+      <div class="side-bar-new">
+        <button class="side-bar-btn" type="submit">Update</button>
+    </div>
+    <div class="show-card-new">
+      Name: <input type="text" name="name" value="<%= myPokemon.name %>">
+      HP: <input type="text" name="hp" value="<%= myPokemon.stats.hp %>">
+      Attack: <input type="text" name="attack" value="<%= myPokemon.stats.attack %>">
+      Defense: <input type="text" name="defense" value="<%= myPokemon.stats.defense %>">
+      Image Url: <input type="text" name="img" value="<%= myPokemon.img %>">
+      <p id="btn">
+      <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+        Add More Info
+      </button>
+      </p>
+      <div style="min-height: 120px; background-color: transparent;">
+      <div class="collapse collapse-horizontal" id="collapseWidthExample" style="background-color: transparent;">
+        <div class="card card-body" style="width: 300px; background-color: transparent;">
+          <p class="more-stats">Classification: </br> <input type="text" name="classification" value="<%=myPokemon.misc.classification%>"> </p>
+          <p class="more-stats">Speed: </br> <input type="text" name="speed" value="<%=myPokemon.stats.speed %>"></p>
+        </div>
       </div>
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Image</label>
-        <input type="name" class="form-control" name="img" value="<%=myPokemon.img%> ">
       </div>
-      <div class="col-md-4">
-        <label for="inputState" class="form-label">Type</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose Type</option>
-          <option name="type">Fire</option>
-          <option name="type">Water</option>
-        </select>
-      </div>
-      <div class="col-12">
-          <button type="submit" class="btn btn-primary">Update <%=myPokemon.name %> </button>
-      </div>
+    </div>
     </form>
   </main>
 </body>

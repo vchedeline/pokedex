@@ -46,7 +46,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 // Create Route - POST
 app.post("/pokemon", (req, res) => {
   console.log(req.body);
-  let newPokemon
+  let newPokemon;
   pokemons.unshift(req.body);
   res.redirect("/pokemon");
 });
@@ -59,8 +59,9 @@ app.put("/pokemon/:id", (req, res) => {
     hp: req.body.hp,
     attack: req.body.attack,
     defense: req.body.defense,
+    speed: req.body.speed,
   };
-  editedPokemon.name = req.body.name
+  editedPokemon.name = req.body.name;
   pokemons[req.params.id] = editedPokemon;
   res.redirect(`/pokemon/${req.params.id}`);
 });

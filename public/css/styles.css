@@ -27,7 +27,12 @@ main {
   align-self: center;
   width: 80vw;
   height: 85vh;
-  background-color: azure;
+  background-color: transparent;
+}
+
+.more-stats {
+  background-color: transparent;
+  color:goldenrod;
 }
 
 .side-bar {
@@ -63,12 +68,13 @@ main {
 
 .index-main {
   background-color: transparent;
+  margin-top: 2%;
 }
 
 .index-image {
   width: 200px;
   height: 200px;
-  box-shadow: 2px 2px black;
+  box-shadow: -10px -10px rgba(0, 0, 0, 0.8);
   border: 2px red;
   margin: 20px;
 }
@@ -110,7 +116,7 @@ main {
 .show-card-image {
   width: 40%;
   height: 40%;
-  box-shadow: 1em 0.4em 10px gold, -1em -0.4em 0.4em green;
+  box-shadow: 1em 0.4em 10px rgb(11, 101,139), -1em -0.4em 0.4em green;
 }
 
 .show-card-image img {
@@ -149,4 +155,27 @@ main {
 
 #btn-body {
   color: black;
+}
+
+.side-bar-new {
+  height: 5%;
+  width: 7%;
+  position: fixed;
+  margin-top: 5%;
+  margin-left: 2%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.show-card-new {
+  width: 50vw;
+  height: 70vh;
+  margin-top: 5%;
+  background-color: black;
+  border: goldenrod 10px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: x-large;
 }
