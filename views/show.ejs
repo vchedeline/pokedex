@@ -5,37 +5,43 @@
   <header>
     <%- include("partials/header.ejs") %> 
   </header>
-  <main class="d-flex flex-column">
-    <div class="container d-flex">
-      <img src="<%=myPokemon.img%>" class="img-thumbnail" alt="<%=myPokemon.name%>">
-      <h1><%=myPokemon.name%></h1>
-      <ul>
-        <li>Type: <%= myPokemon.type%> </li>
-        <li>HP: <%= myPokemon.stats.hp %></li>
-        <li>ATTACK: <%= myPokemon.stats.attack %></li>
-        <li>DEFENSE: <%= myPokemon.stats.defense %></li>
-      </ul>
-    </div>
-    <div class="container">
-      <div class="btn-group" role="group" aria-label="Basic outlined example">
+  <main>
+    <div class="side-bar">
+      <div id="edit">
         <a href="/pokemon/<%=index%>/edit">
-          <button type="button" class="btn btn-outline-primary">EDIT</button>
-        </a>        
+          <button class="side-bar-btn" type="button">EDIT</button>
+        </a>
+      </div>
+      <div id="del">
         <form action="/pokemon/<%=index%>?_method=DELETE " method="post">
-          <button type="submit" class="btn btn-outline-primary">DELETE</button>        
+          <input class="side-bar-btn" type="submit" value="DELETE">       
         </form>
       </div>
-      
     </div>
-    <p>
-      <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
-        Show More Info
-      </button>
-    </p>
-    <div style="min-height: 120px;">
-      <div class="collapse collapse-horizontal" id="collapseWidthExample">
-        <div class="card card-body" style="width: 300px;">
-          This is some placeholder content for a horizontal collapse. It's hidden by default and shown when triggered.
+    <div class="show-card">
+      <div class="show-card-header">
+        <h1><%= myPokemon.name%></h1>
+        <p><%= myPokemon.stats.hp %> HP</p>
+      </div>
+      <div class="show-card-image rounded-3">
+        <img class="rounded-3" src="<%= myPokemon.img %> " alt="<%=myPokemon.name%> ">
+      </div>
+      <div class="show-card-stats">
+        <div><%= myPokemon.stats.attack%> ATK</div>
+        <div><%= myPokemon.stats.defense%> DEF</div>
+        <div>Type: <%=myPokemon.type.toString(", ") %></div>   
+      </div>
+      <p id="btn">
+        <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+          Show More Info
+        </button>
+      </p>
+      <div style="min-height: 120px;">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div class="card card-body" style="width: 300px;">
+            <p>Classification: <%=myPokemon.misc.classification %> </p>
+            <p>Speed: <%=myPokemon.stats.speed %> </p>
+          </div>
         </div>
       </div>
     </div>

@@ -5,13 +5,13 @@
   <header>
     <%- include("partials/header.ejs") %> 
   </header>
-  <main>
-    <div class="container overflow-scroll">
-    <div class="row">
+  <main class="index-main">
+    <div class="container overflow-auto" style="background-color: transparent;">
+    <div class="row" style="background-color: transparent;">
       <% for (let i = 0; i < pokemon.length; i++) { %>
-        <div class="col">
-          <a href="/pokemon/<%=i%>">
-            <img class="index-image" src="<%=pokemon[i].img%>" alt="<%=pokemon[i].name%> ">
+        <div class="col" style="background-color: transparent;">
+          <a href="/pokemon/<%=i%>" style="background-color: transparent;">
+            <img class="index-image rounded border border-dark" src="<%=pokemon[i].img%>" alt="<%=pokemon[i].name%> ">
           </a>
         </div>
       <% } %>  

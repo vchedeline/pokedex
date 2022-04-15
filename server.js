@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 8008;
 const morgan = require("morgan");
 const methodOverride = require("method-override");
 const pokemons = require("./models/pokemon.js");
+const pokemon = require("./models/pokemon.js");
 
 app.use(express.urlencoded({ extended: false }));
 app.use("/public", express.static("public"));
@@ -45,6 +46,7 @@ app.get("/pokemon/:id/edit", (req, res) => {
 // Create Route - POST
 app.post("/pokemon", (req, res) => {
   console.log(req.body);
+  let newPokemon
   pokemons.unshift(req.body);
   res.redirect("/pokemon");
 });
@@ -52,10 +54,15 @@ app.post("/pokemon", (req, res) => {
 // Update Route - PUT
 app.put("/pokemon/:id", (req, res) => {
   console.log(req.body);
-  req.body.stats = req.body.hp;
-  console.log(req.body);
-  pokemons[req.params.id] = req.body;
-  res.redirect("/pokemon");
+  let editedPokemon = { ...pokemons[req.params.id] };
+  editedPokemon.stats = {
+    hp: req.body.hp,
+    attack: req.body.attack,
+    defense: req.body.defense,
+  };
+  editedPokemon.name = req.body.name
+  pokemons[req.params.id] = editedPokemon;
+  res.redirect(`/pokemon/${req.params.id}`);
 });
 
 // Delete Route - DELETE
