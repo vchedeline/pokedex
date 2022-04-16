@@ -8,13 +8,31 @@ const methodOverride = require("method-override");
 const pokemons = require("./models/pokemon");
 const tempPokemon = require("./models/temp-pokemon");
 
+let starterOne, starterTwo, starterThree;
+
+for (let element of pokemons) {
+  if (element.id === "001") {
+    starterOne = element;
+  }
+  if (element.id === "004") {
+    starterThree = element;
+  }
+  if (element.id === "007") {
+    starterTwo = element;
+  }
+}
+
 app.use(express.urlencoded({ extended: false }));
 app.use("/public", express.static("public"));
 app.use(morgan("tiny"));
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.render("main.ejs", {pokemon: pokemons});
+  res.render("main.ejs", {
+    starterOne: starterOne,
+    starterTwo: starterTwo,
+    starterThree: starterThree,
+  });
 });
 
 // Index Route - GET

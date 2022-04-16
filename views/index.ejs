@@ -6,11 +6,11 @@
     <%- include("partials/header.ejs") %> 
   </header>
   <main class="index-main">
-    <div class="container overflow-auto" style="background-color: transparent;">
-    <div class="row" style="background-color: transparent;">
+    <div class="container overflow-auto">
+    <div class="row">
       <% for (let i = 0; i < pokemon.length; i++) { %>
-        <div class="col" style="background-color: transparent;">
-          <a href="/pokemon/<%=i%>" style="background-color: transparent;">
+        <div class="col">
+          <a href="/pokemon/<%=i%>">
             <img class="index-image rounded border border-dark" src="<%=pokemon[i].img%>" onerror="this.src = './public/img/whos_that_pokemon.png';">
           </a>
         </div>
