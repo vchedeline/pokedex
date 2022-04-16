@@ -5,12 +5,16 @@
   <header>
     <%- include("partials/header.ejs") %> 
   </header>
-  <main>
+  <main class="main-main">
     <div class="card main-card">
-      <img src="<%= starterOne.img %> " class="card-img-top card-image" alt="..." >
-      <div class="card-body d-flex flex-column justify-content-center align-items-center">
+      <img src="https://i.pinimg.com/474x/d3/6a/75/d36a755f99b0d3245420e39c116fc203.jpg" class="card-img-top card-image" id="pokemon-1-silhouette" alt="..." >
+      <img src="<%= starterOne.img %> " class="card-img-top card-image" id="pokemon-1-img" alt="..." >
+      <div class="main-btn" id="pokemon-1-btn">
+        <button class="side-bar-btn" id="who-pokemon-1" type="button">Who's That Pokemon?</button>
+      </div>
+      <div class="card-body" id="pokemon-1-body">
         <p class="card-text">
-          <a href="/pokemon/0"><%= starterOne.name %></a> 
+          <a href="/pokemon/<%=index1%>"><%= starterOne.name %></a> 
         </p>
         <p>
           Normal Abilities: <%=starterOne.misc.abilities.normal.join(", ") %> </br>
@@ -19,10 +23,14 @@
       </div>
     </div>
     <div class="card main-card">
-      <img src="<%= starterTwo.img %> " class="card-img-top card-image" alt="..." >
-      <div class="card-body d-flex flex-column justify-content-center align-items-center">
+      <img src="https://i.pinimg.com/236x/3e/fd/58/3efd58ed6f19aa1ffaf2fa5283e94e53.jpg" class="card-img-top card-image" id="pokemon-2-silhouette" alt="..." >
+      <img src="<%= starterTwo.img %> " class="card-img-top card-image" id="pokemon-2-img" alt="..." >
+      <div class="main-btn" id="pokemon-2-btn">
+        <button class="side-bar-btn" id="who-pokemon-2" type="button">Who's That Pokemon?</button>
+      </div>
+      <div class="card-body" id="pokemon-2-body">
         <p class="card-text">
-          <a href="/pokemon/0"><%= starterTwo.name %></a> 
+          <a href="/pokemon/<%=index2%> "><%= starterTwo.name %></a> 
         </p>
         <p>
           Normal Abilities: <%=starterTwo.misc.abilities.normal.join(", ") %> </br>
@@ -31,10 +39,14 @@
       </div>
     </div>
     <div class="card main-card">
-      <img src="<%= starterThree.img %> " class="card-img-top card-image" alt="..." >
-      <div class="card-body d-flex flex-column justify-content-center align-items-center">
+      <img src="https://freestencilgallery.com/wp-content/uploads/2017/04/Pokemon-Mew-Silhouette-Stencil-thumb.jpg" class="card-img-top card-image" id="pokemon-3-silhouette" alt="..." >
+      <img src="<%= starterThree.img %> " class="card-img-top card-image" id="pokemon-3-img" alt="..." >
+      <div class="main-btn" id="pokemon-3-btn">
+        <button class="side-bar-btn" id="who-pokemon-3" type="button">Who's That Pokemon?</button>
+      </div>
+      <div class="card-body" id="pokemon-3-body">
         <p class="card-text">
-          <a href="/pokemon/0"><%= starterThree.name %></a> 
+          <a href="/pokemon/<%=index3%>"><%= starterThree.name %></a> 
         </p>
         <p>
           Normal Abilities: <%=starterThree.misc.abilities.normal.join(", ") %> </br>

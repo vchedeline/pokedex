@@ -8,17 +8,20 @@ const methodOverride = require("method-override");
 const pokemons = require("./models/pokemon");
 const tempPokemon = require("./models/temp-pokemon");
 
-let starterOne, starterTwo, starterThree;
+let starterOne, starterTwo, starterThree, index1, index2, index3;
 
 for (let element of pokemons) {
-  if (element.id === "001") {
+  if (element.id === "025") {
     starterOne = element;
+    index1 = pokemons.indexOf(starterOne);
   }
-  if (element.id === "004") {
-    starterThree = element;
-  }
-  if (element.id === "007") {
+  if (element.id === "133") {
     starterTwo = element;
+    index2 = pokemons.indexOf(starterTwo);
+  }
+  if (element.id === "151") {
+    starterThree = element;
+    index3 = pokemons.indexOf(starterThree);
   }
 }
 
@@ -30,8 +33,11 @@ app.use(methodOverride("_method"));
 app.get("/", (req, res) => {
   res.render("main.ejs", {
     starterOne: starterOne,
+    index1: index1,
     starterTwo: starterTwo,
+    index2: index2,
     starterThree: starterThree,
+    index3: index3,
   });
 });
 
@@ -71,6 +77,9 @@ app.post("/pokemon", (req, res) => {
     attack: req.body.attack,
     defense: req.body.defense,
     speed: req.body.defense,
+  };
+  newPokemon.misc = {
+    classification: req.body.classification,
   };
   pokemons.unshift(newPokemon);
   res.redirect("/pokemon/0");
