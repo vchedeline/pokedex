@@ -5,8 +5,8 @@ const app = express();
 const PORT = process.env.PORT || 8008;
 const morgan = require("morgan");
 const methodOverride = require("method-override");
-const pokemons = require("./models/pokemon.js");
-const pokemon = require("./models/pokemon.js");
+const pokemons = require("./models/pokemon");
+const tempPokemon = require("./models/temp-pokemon");
 
 app.use(express.urlencoded({ extended: false }));
 app.use("/public", express.static("public"));
@@ -14,7 +14,7 @@ app.use(morgan("tiny"));
 app.use(methodOverride("_method"));
 
 app.get("/", (req, res) => {
-  res.render("main.ejs");
+  res.render("main.ejs", {pokemon: pokemons});
 });
 
 // Index Route - GET
@@ -45,10 +45,17 @@ app.get("/pokemon/:id/edit", (req, res) => {
 
 // Create Route - POST
 app.post("/pokemon", (req, res) => {
-  console.log(req.body);
-  let newPokemon;
-  pokemons.unshift(req.body);
-  res.redirect("/pokemon");
+  let newPokemon = tempPokemon;
+  newPokemon.name = req.body.name;
+  newPokemon.img = req.body.img;
+  newPokemon.stats = {
+    hp: req.body.hp,
+    attack: req.body.attack,
+    defense: req.body.defense,
+    speed: req.body.defense,
+  };
+  pokemons.unshift(newPokemon);
+  res.redirect("/pokemon/0");
 });
 
 // Update Route - PUT
@@ -60,6 +67,9 @@ app.put("/pokemon/:id", (req, res) => {
     attack: req.body.attack,
     defense: req.body.defense,
     speed: req.body.speed,
+  };
+  editedPokemon.misc = {
+    classification: req.body.classification,
   };
   editedPokemon.name = req.body.name;
   pokemons[req.params.id] = editedPokemon;

@@ -11,7 +11,7 @@
       <% for (let i = 0; i < pokemon.length; i++) { %>
         <div class="col" style="background-color: transparent;">
           <a href="/pokemon/<%=i%>" style="background-color: transparent;">
-            <img class="index-image rounded border border-dark" src="<%=pokemon[i].img%>" alt="<%=pokemon[i].name%> ">
+            <img class="index-image rounded border border-dark" src="<%=pokemon[i].img%>" onerror="this.src = './public/img/whos_that_pokemon.png';">
           </a>
         </div>
       <% } %>  
